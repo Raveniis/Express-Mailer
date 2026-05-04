@@ -17,7 +17,7 @@ export const sendEmail = async (req: Request, res: Response) => {
       return;
     }
 
-    if (!/\S+@\S+\.\S+/.test(email)) {
+    if (!/^[^\s@]+@[^\s@]+$/.test(email)) {
       res.status(422).json({ message: "Invalid email format" });
       return;
     }
